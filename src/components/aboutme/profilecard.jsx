@@ -125,7 +125,7 @@ export default function ProfileCard() {
                             </li>
                         </ul>
                     </div>
-                    <div id="tab1-content" className={`tab-content ${activeTab === 'tab1' ? 'tab-content--active' : 'hidden'}`}  style={{ height: '250px' }}>
+                    <div id="tab1-content" className={`tab-content ${activeTab === 'tab1' ? 'tab-content--active' : 'hidden'}`} style={{ height: '250px', overflow: 'auto' }}>
                         <p>
                             I am a full-stack developer with 10 years of experience at Google. For the past 5 years, I have been posting educational content on my blog and YouTube channel. I have a passion for modern web technologies and love to share my knowledge with others.
                         </p>
@@ -142,7 +142,7 @@ export default function ProfileCard() {
                             </li>
                         </ul>
                     </div>
-                    <div id="tab2-content" className={`tab-content ${activeTab === 'tab2' ? 'tab-content--active' : 'hidden'}`} style={{ height: '250px' }}>
+                    <div id="tab2-content" className={`tab-content ${activeTab === 'tab2' ? 'tab-content--active' : 'hidden'}`} style={{ height: '250px', overflow: 'auto' }}>
                         <p>
                             My content is focused on the latest web development technologies and tools. Here is the overview 👨‍💻
                         </p>
@@ -164,6 +164,24 @@ export default function ProfileCard() {
                 </main>
                 <a href="/" className='btn btn--primary w-full bg-[#655FDF] hover:bg-[#3A45EF] rounded-full py-2 px-4 mt-8 text-center transition-all duration-300'>Hire me</a>
             </div>
+            <style>
+                {
+                    `
+                    .tab-content::-webkit-scrollbar {
+                        width: 12px;
+                      }
+                      
+                      .tab-content::-webkit-scrollbar-track {
+                        background: #fff;
+                      }
+                      
+                      .tab-content::-webkit-scrollbar-thumb {
+                        background-color:#655FDF ;
+                        border-radius: 6px;
+                      }
+                    `
+                }
+            </style>
         </div>
     );
 
