@@ -1,12 +1,6 @@
 import IconsGrid from "./IconsComponent"
-import Link from "next/link";
-import { CSSTransition } from "react-transition-group";
-import { useRouter } from "next/router";
-
 
 const MainComponent = () => {
-
-    const router = useRouter()
 
     return (
         <main className="mx-auto grid grid-cols-3 gap-4 p-8 place-content-center">
