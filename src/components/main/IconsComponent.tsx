@@ -21,19 +21,19 @@ const IconsGrid: React.FC<IconsGridProps> = ({ title, image, href }) => {
           <Image src={image} alt={title} width={1256} height={1256} />
         </motion.div>
         <motion.span
-          className="bg-white bg-opacity-75 backdrop-blur-md rounded-md text-center px-2 py-1 mt-2 text-black font-semibold"
+          className="bg-white bg-opacity-75 backdrop-blur-md rounded-md text-center px-2 py-1 mt-2 mb-0 text-black font-semibold md:mt-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', color: 'black' }}>
-          <h2 className="text-lg font-semibold mb-2 text-center text-black">{title}</h2>
+          <h2 className="text-lg font-semibold text-center text-black">{title}</h2>
         </motion.span>
 
 
         <style>
           {`
         .icons-grid-item img {
-          width: 250px;
+          width: 300px;
           height: auto;
         }`}
         </style>
