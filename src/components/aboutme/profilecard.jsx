@@ -90,7 +90,7 @@ export default function ProfileCard() {
                                 <a href="#html-css" className='flex items-center rounded-lg bg-[#343841] border border-[#42474D] p-2 transition-all duration-300'>HTML, CSS <HTML5Icon /> <CSSIcon /></a>
                             </li>
                             <li>
-                                <a href="#tailwind" className='flex items-center rounded-lg bg-[#343841] border border-[#42474D] p-2 transition-all duration-300'>Tailwind <TailwindCSSIcon /></a>
+                                <a href="#tailwind" className='flex items-center rounded-lg bg-[#343841] border border-[#42474D] p-2 transition-all duration-300'>Tailwind <TailwindCSSIcon/></a>
                             </li>
                             <li>
                                 <a href="#javascript" className='flex items-center rounded-lg bg-[#343841] border border-[#42474D] p-2 transition-all duration-300'>JavaScript <JavascriptIcon /></a>

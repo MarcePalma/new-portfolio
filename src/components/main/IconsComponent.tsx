@@ -33,7 +33,7 @@ const IconsGrid: React.FC<IconsGridProps> = ({ title, image, href }) => {
         <style>
           {`
         .icons-grid-item img {
-          width: 330px;
+          width: 250px;
           height: auto;
         }`}
         </style>

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Lines from './Lines';
 import { LeftArrow } from './icons';
 import { useRouter } from 'next/router';
+import InterfaceIcons from './InterfaceIcons';
 
 export default function Navbar() {
     const router = useRouter();
@@ -14,6 +15,7 @@ export default function Navbar() {
 
     return (
         <>
+        <InterfaceIcons/>
             <Lines />
             <nav className='fixed bottom-0 left-0 w-full bg-gray-900 text-white py-2 rounded-t-lg' style={{ zIndex: '9999' }}>
                 <ul className='flex justify-center'>
