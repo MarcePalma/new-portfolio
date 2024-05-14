@@ -23,7 +23,7 @@ const InterfaceIcons = () => {
   return (
     <ul className="absolute top-0 right-0 py-4 flex gap-4 items-center justify-between pr-10 pl-5 md:pl-10" style={{ zIndex: 9999 }}>
       <li className='hidden md:block'>
-        <Image src={"/images/icons/Wifi-icon.webp"} width={60} height={60} alt='wifi-icon' />
+        <Image src={"/images/icons/Wifi-icon.webp"} width={40} height={40} alt='wifi-icon' />
       </li>
       <li>
         <Image src={"/images/icons/Battery.webp"} width={60} height={60} alt='battery-icon' />
