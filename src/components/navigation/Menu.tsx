@@ -10,7 +10,7 @@ export default function Navbar() {
     const router = useRouter();
 
     const handleClickBack = () => {
-        router.back(); // Redirige a la página anterior
+        router.back();
     };
 
     return (
