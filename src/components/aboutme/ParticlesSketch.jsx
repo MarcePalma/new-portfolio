@@ -1,21 +1,19 @@
 import React, { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
+import DynamicSketch from './DynamicSketch'
 
-const DynamicSketch = () => {
+const Particles = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && containerRef.current) {
       const p5 = require('p5');
-      
+
       const sketch = (p) => {
         let particles = [];
 
         p.setup = () => {
           const container = containerRef.current;
-          p.createCanvas(container.offsetWidth, container.offsetHeight).parent(
-            container
-          );
+          p.createCanvas(container.offsetWidth, container.offsetHeight).parent(container);
           for (let i = 0; i < 100; i++) {
             particles.push(new Particle(p));
           }
@@ -63,7 +61,7 @@ const DynamicSketch = () => {
     }
   }
 
-  return <div ref={containerRef} style={{ width: '100%', height: '100%' }}></div>;
+  return <div ref={containerRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }}><DynamicSketch /></div>;
 };
 
-export default DynamicSketch;
+export default Particles;

@@ -20,7 +20,6 @@ export default function ProfileCard() {
 
     return (
         <div className={`font-manrope ${isLightMode ? 'bg-white text-black' : 'bg-[#16191E] text-[#E6E9EB]'} flex justify-center flex-col h-screen select-none relative`}>
-            <Hero />
             <div className={`profile bg-[#23262D] p-4 rounded-lg shadow-md w-full max-w-[28rem] min-w-[20rem] mx-auto gap-3 flex flex-col items-center justify-between relative ${isLightMode ? 'bg-gray-200' : ''}`}>
                 <header className='profile-header flex justify-between items-start w-full gap-3'>
                     <button onClick={toggleLightMode} className={`profile-highlight p-2 rounded-lg font-semibold w-full flex items-center justify-center gap-1 ${isLightMode ? 'bg-[#8993aa]' : 'bg-[#34393F] '} border border-[#42474D]`}>
@@ -147,9 +146,12 @@ export default function ProfileCard() {
                         background-color:#655FDF ;
                         border-radius: 6px;
                       }
+
                     `
                 }
             </style>
+            <Hero />
+
         </div>
     );
 }
