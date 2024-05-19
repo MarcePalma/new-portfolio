@@ -8,8 +8,13 @@ const Hero = () => {
   const messages = [
     "Hey, that's me!",
     "Try clicking on Design!",
+    "Click on Coder to see something cool!",
+    "Follow me on social media!",
+    "Discover more about me in my profile card!",
+    "Explore my skills in the profile card!",
+    "Learn about my projects in the profile card!",
+    "Check out my contact information in the profile card!",
   ];
-
 
   useEffect(() => {
     const interval = setInterval(() => {
