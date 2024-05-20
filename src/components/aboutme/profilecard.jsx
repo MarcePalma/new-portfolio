@@ -97,7 +97,7 @@ export default function ProfileCard() {
 
 
     return (
-        <div className={`font-manrope ${isLightMode ? 'bg-white text-black' : 'bg-[#16191E] text-[#E6E9EB]'} flex justify-center flex-col h-screen select-none relative transition-all duration-500`}>
+        <div className={`font-manrope ${isLightMode ? 'bg-white text-black' : 'bg-[#121212] text-[#E6E9EB]'} flex justify-center flex-col h-screen select-none relative transition-all duration-500`}>
             <div className='absolute top-20 left-0 w-full'>
                 <Hero />
             </div>
