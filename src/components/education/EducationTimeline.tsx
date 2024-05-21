@@ -39,7 +39,7 @@ const events = [
     {
         year: "2024",
         title: "Started First Job",
-        description: "In January 2024, I embarked on my professional career by starting my first job as a web developer. In this role, I significantly improved my programming skills by developing a full-stack web application for a client in Colombia. This experience has been instrumental in my growth as a developer. For more details on my professional experience, please visit my /Experience page.",
+        description: "In January 2024, I embarked on my professional career by starting my first job as a web developer. In this role, I significantly improved my programming skills by developing a full-stack web application for a client in Colombia. This experience has been instrumental in my growth as a developer. For more details on my professional experience, please visit my Experience page.",
     },
 ];
 

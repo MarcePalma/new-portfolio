@@ -1,20 +1,15 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Parallax } from 'react-parallax';
+import { ParallaxSectionProps } from '@/types/types';
 
-interface ParallaxSectionProps {
-    image: string;
-    strength: number;
-    children: ReactNode;
-}
-
-const ParallaxSection: React.FC<ParallaxSectionProps> = ({ image, strength, children }) => {
+const ParallaxHeader: React.FC<ParallaxSectionProps> = ({ image, strength, children }) => {
     return (
         <Parallax bgImage={image} strength={strength}>
-            <div style={{ height: 500, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ height: '400px' }} className="parallax-content">
                 {children}
             </div>
         </Parallax>
     );
 };
 
-export default ParallaxSection;
+export default ParallaxHeader;
