@@ -2,61 +2,51 @@ import React, { useRef, useEffect, useState } from 'react';
 import { ProjectShowcaseProps } from '@/types/types';
 
 const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ title, images, description, technologies, duration }) => {
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const previousScrollYRef = useRef(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [zoomed, setZoomed] = useState(false);
+    const mainImageRef = useRef<HTMLDivElement>(null);
 
+    const handleImageClick = (index: number) => {
+        setCurrentImageIndex(index);
+        setZoomed(true);
+    };
+
+    const handleThumbnailClick = (index: number) => {
+        setCurrentImageIndex(index);
+        setZoomed(false);
+    };
 
     useEffect(() => {
-        const scrollContainer = scrollContainerRef.current;
-
-        const onWheel = (event: WheelEvent) => {
-            if (scrollContainer && event.deltaY !== 0) {
-                // Verificar la velocidad del scroll
-                const currentScrollY = window.scrollY || window.pageYOffset;
-                const deltaScrollY = currentScrollY - previousScrollYRef.current;
-                const isFastScroll = Math.abs(deltaScrollY) > 50;
-
-                // Si el scroll es rápido, permitir el desplazamiento normal de la página
-                if (isFastScroll) return;
-
-                // Si el scroll no es rápido, realizar el desplazamiento horizontal dentro del contenedor
-                scrollContainer.scrollLeft += event.deltaY;
-                event.preventDefault();
-            }
-        };
-
-        if (scrollContainer) {
-            scrollContainer.addEventListener('wheel', onWheel);
+        if (zoomed && mainImageRef.current) {
+            mainImageRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-
-        return () => {
-            if (scrollContainer) {
-                scrollContainer.removeEventListener('wheel', onWheel);
-            }
-        };
-    }, []);
-
-    useEffect(() => {
-        // Actualizar la referencia del scroll anterior después de cada renderizado
-        previousScrollYRef.current = window.scrollY || window.pageYOffset;
-    });
+    }, [currentImageIndex, zoomed]);
 
     return (
         <div className="project-showcase">
             <h2>{title}</h2>
-            <div className="scroll-container" ref={scrollContainerRef}>
+            <div className={`scroll-container ${zoomed ? 'zoomed' : ''}`}>
+                <div className="main-image" ref={mainImageRef}>
+                    <img src={images[currentImageIndex].src} alt={`Screenshot ${currentImageIndex + 1}`} />
+                </div>
+                <p>{images[currentImageIndex].description}</p>
+            </div>
+            <div className="thumbnail-gallery">
                 {images.map((image, index) => (
-                    <div className="scroll-item" key={index}>
-                        <img src={image.src} alt={`Screenshot ${index + 1}`} />
-                        <p>{image.description}</p>
-                    </div>
+                    <img
+                        key={index}
+                        src={image.src}
+                        alt={`Thumbnail ${index + 1}`}
+                        className={index === currentImageIndex ? 'active' : ''}
+                        onClick={() => handleThumbnailClick(index)}
+                    />
                 ))}
             </div>
             <div className="project-details">
                 <p>{description}</p>
-                <p><strong>Duración del Proyecto:</strong> {duration}</p>
-                <p><strong>Responsabilidades:</strong> Diseño y desarrollo desde cero.</p>
-                <h4>Tecnologías Utilizadas:</h4>
+                <p><strong>Project Duration:</strong> {duration}</p>
+                <p><strong>Responsibilities:</strong> Design and development from scratch.</p>
+                <h4>Technologies Used:</h4>
                 <ul>
                     {technologies.map((tech, index) => (
                         <li key={index}>{tech}</li>
@@ -64,85 +54,92 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ title, images, descri
                 </ul>
             </div>
             <style jsx>{`
-    .project-showcase {
-        margin: 40px 0;
-        padding: 20px;
-        background: #1e1e1e;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        color: #fff;
-    }
+                .project-showcase {
+                    margin: 40px 0;
+                    padding: 20px;
+                    background: #1e1e1e;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    color: #fff;
+                }
 
-    h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        font-family: 'Outfit', sans-serif;
-    }
+                h2 {
+                    font-size: 2rem;
+                    margin-bottom: 20px;
+                    font-family: 'Outfit', sans-serif;
+                }
 
-    .scroll-container {
-        display: flex;
-        overflow-x: auto;
-        padding: 10px;
-        scrollbar-width: none;
-        -ms-overflow-style: none; 
-    }
+                .scroll-container {
+                    position: relative;
+                    overflow: hidden;
+                    width: 100%;
+                    height: auto;
+                }
 
-    .scroll-container::-webkit-scrollbar {
-        display: none; 
-    }
+                .scroll-container.zoomed {
+                    overflow: hidden;
+                }
 
-    .scroll-item {
-        flex: 0 0 auto;
-        width: 1000px;
-        margin-right: 10px;
-        scroll-snap-align: start;
-        background: #2e2e2e;
-        border-radius: 8px;
-        padding: 10px;
-    }
+                .main-image {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 500px; /* Tamaño deseado del área de la imagen principal */
+                }
 
-    .scroll-item img {
-        width: 100%;
-        border-radius: 8px;
-    }
+                .main-image img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
 
-    .scroll-item p {
-        text-align: center;
-        margin-top: 10px;
-        color: #ccc;
-    }
+                .thumbnail-gallery {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 10px;
+                }
 
-    .project-details {
-        padding: 20px;
-        background-color: #2e2e2e;
-        border-radius: 8px;
-        margin-top: 20px;
-        color: #fff;
-    }
+                .thumbnail-gallery img {
+                    width: 100px;
+                    margin: 0 5px;
+                    cursor: pointer;
+                    border: 2px solid transparent;
+                    border-radius: 4px;
+                }
 
-    .project-details h4 {
-        margin-top: 20px;
-        font-family: 'Outfit', sans-serif;
-    }
+                .thumbnail-gallery img.active {
+                    border-color: #fff;
+                }
 
-    .project-details ul {
-        list-style-type: none;
-        padding: 0;
-    }
+                .project-details {
+                    padding: 20px;
+                    background-color: #2e2e2e;
+                    border-radius: 8px;
+                    margin-top: 20px;
+                    color: #fff;
+                }
 
-    .project-details li {
-        background: #444;
-        border-radius: 4px;
-        padding: 5px;
-        margin: 5px 0;
-        transition: background 0.3s ease;
-    }
+                .project-details h4 {
+                    margin-top: 20px;
+                    font-family: 'Outfit', sans-serif;
+                }
 
-    .project-details li:hover {
-        background: #555;
-    }
-`}</style>
+                .project-details ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
 
+                .project-details li {
+                    background: #444;
+                    border-radius: 4px;
+                    padding: 5px;
+                    margin: 5px 0;
+                    transition: background 0.3s ease;
+                }
+
+                .project-details li:hover {
+                    background: #555;
+                }
+            `}</style>
         </div>
     );
 };
