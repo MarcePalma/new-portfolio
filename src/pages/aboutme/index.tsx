@@ -1,7 +1,4 @@
-import Link from "next/link";
 import { motion } from "framer-motion"
-
-import styles from "../../components/aboutme/aboutme.module.css";
 import ProfileCard from "../../components/aboutme/profilecard"
 
 const AboutMePage = () => {
