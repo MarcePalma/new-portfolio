@@ -47,10 +47,10 @@ export default function ExperiencePage() {
             <ProjectShowcase
                 title="MarketApp"
                 images={[
-                    { src: '/images/experience/page-2.png', description: 'Login page' },
-                    { src: '/images/experience/page2-1.png', description: 'Appointment Booking' },
-                    { src: '/images/experience/page-2-2.png', description: 'Publication Forum' },
-                    { src: '/images/experience/page-2-3.png', description: 'Payment Pages' },
+                    { src: '/images/experience/page-2.png', description: 'Home Page' },
+                    { src: '/images/experience/page2-1.png', description: 'Stock' },
+                    { src: '/images/experience/page-2-2.png', description: 'Sales' },
+                    { src: '/images/experience/page-2-3.png', description: 'Income Reports' },
                 ]}
                 description="MarketApp is a full-stack application built with Nextron, NextJS, TypeScript, PrismaORM, and SQL. It includes features such as appointment booking, a forum for posts, payment pages, and admin panels."
                 technologies={['Nextron', 'NextJS', 'TypeScript', 'Prisma', 'SQL']}
