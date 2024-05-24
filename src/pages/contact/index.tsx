@@ -1,11 +1,11 @@
+import ContactForm from '@/components/Contact/ContactForm'
+import Contact from '@/components/Contact/contact'
 import React from 'react'
 
 export default function ContactPage() {
   return (
-    <div>ContactPage
-        <p>
-            Hola aqui ira la pagina de contacto!
-        </p>
-    </div>
+    <section>
+      <Contact />
+    </section>
   )
 }
