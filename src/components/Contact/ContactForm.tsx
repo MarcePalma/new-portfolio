@@ -59,17 +59,16 @@ const ContactForm = () => {
                     required
                 ></textarea>
             </div>
-
-            <button className='btn btn--primary w-full bg-[#655FDF] hover:bg-[#3A45EF] rounded-full py-2 px-4 mt-8 text-center transition-all duration-300 hover:scale-105' type="submit">Enviar</button>
+            <button type="submit">Enviar</button>
             <style jsx>{`
                 .contact-form {
-                    color:#fff;
                     max-width: 600px;
                     width: 100%;
-                    background-color: #2e2e2e;
-                    padding: 20px;
+                    background-color: rgba(46, 46, 46, 0.9);
+                    padding: 30px;
                     border-radius: 12px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                    backdrop-filter: blur(10px);
                 }
 
                 .form-group {
@@ -80,6 +79,7 @@ const ContactForm = () => {
                     display: block;
                     margin-bottom: 8px;
                     font-weight: bold;
+                    color: #fff;
                 }
 
                 input[type='text'],
@@ -92,10 +92,8 @@ const ContactForm = () => {
                     background-color: #3e3e3e;
                     color: #fff;
                     font-size: 1rem;
-                }
-
-                textarea {
-                    height: 150px;
+                    outline: none;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
                 }
 
                 input:focus,
@@ -105,8 +103,27 @@ const ContactForm = () => {
                     border: 1px solid rgba(81, 203, 238, 1);
                 }
 
+                textarea {
+                    height: 150px;
+                }
+
+                button {
+                    display: inline-block;
+                    background-color: #007bff;
+                    color: #fff;
+                    border: none;
+                    border-radius: 8px;
+                    padding: 12px 24px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease, transform 0.3s ease;
+                    text-align: center;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                }
+
                 button:hover {
                     background-color: #0056b3;
+                    transform: scale(1.05);
                 }
             `}</style>
         </form>
