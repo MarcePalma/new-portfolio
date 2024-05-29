@@ -112,9 +112,7 @@ const ContactForm = () => {
                     background-color: #007bff;
                     color: #fff;
                     border: none;
-                    border-radius: 8px;
-                    padding: 12px 24px;
-                    font-size: 1rem;
+                    border-radius: 8px;wf
                     cursor: pointer;
                     transition: background-color 0.3s ease, transform 0.3s ease;
                     text-align: center;

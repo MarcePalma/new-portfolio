@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { NodeJS, Prisma, VSCode, Design, ReactIcon, NextJSIcon, JavascriptIcon, HTML5Icon, CSSIcon, TailwindCSSIcon } from "./icons.jsx";
 import Hero from './hero.tsx';
 import Typed from 'typed.js';
+import DesignBackground from './DesignBackground/DesignBackground.jsx'
 
 export default function ProfileCard() {
     const [activeTab, setActiveTab] = useState('tab1');
@@ -71,9 +72,7 @@ export default function ProfileCard() {
                 elements.forEach((element) => {
                     const textWidth = element.offsetWidth;
                     const textHeight = element.offsetHeight;
-                    const margin = 50; // Margen mínimo para mantener el texto visible
-
-                    // Solo ajustar la posición si el texto cabe dentro de la ventana
+                    const margin = 50;
                     if (textWidth < windowWidth && textHeight < windowHeight) {
                         const top = Math.min(windowHeight - textHeight - margin, Math.max(margin, Math.random() * (windowHeight - textHeight)));
                         const left = Math.min(windowWidth - textWidth - margin, Math.max(margin, Math.random() * (windowWidth - textWidth)));
@@ -83,12 +82,12 @@ export default function ProfileCard() {
                 });
             };
 
-            handleResize(); // Ajustar posiciones una vez al inicio
+            handleResize();
 
-            // Escuchar el evento de redimensionamiento de la ventana
+
             window.addEventListener('resize', handleResize);
 
-            // Remover el listener cuando el componente se desmonte
+
             return () => {
                 window.removeEventListener('resize', handleResize);
             };
@@ -98,10 +97,11 @@ export default function ProfileCard() {
 
     return (
         <div className={`font-manrope ${isLightMode ? 'bg-white text-black' : 'bg-[#121212] text-[#E6E9EB]'} flex justify-center flex-col h-screen select-none relative transition-all duration-500`}>
-            <div className='absolute top-20 left-0 w-full'>
+            {isLightMode && <DesignBackground className="z-0 absolute top-0 left-0 w-full h-full" />}
+            <div className='absolute top-20 left-0 w-full z-10'>
                 <Hero />
             </div>
-            <div className={`profile bg-[#23262D] p-4 rounded-lg shadow-md w-full max-w-[28rem] min-w-[20rem] mx-auto gap-3 flex flex-col items-center justify-between relative ${isLightMode ? 'bg-gray-200' : ''} transition-all duration-500`}>
+            <div className={`profile bg-[#23262D] p-4 rounded-lg shadow-md w-full max-w-[28rem] min-w-[20rem] mx-auto gap-3 flex flex-col items-center justify-between relative z-20 ${isLightMode ? 'bg-gray-200' : ''} transition-all duration-500`}>
                 <header className='profile-header flex justify-between items-start w-full gap-3'>
                     <button onClick={toggleLightMode} className={`profile-highlight p-2 rounded-lg font-semibold w-full flex items-center justify-center gap-1 ${isLightMode ? 'bg-[#8993aa]' : 'bg-[#34393F] '} border border-[#42474D] transition-all duration-300 hover:bg-[#555a60]`}>
                         <Design />
@@ -223,6 +223,7 @@ export default function ProfileCard() {
                     <span className={`coder-animation-text`}></span>
                 </div>
             ))}
+            {isLightMode && <DesignBackground className="z-0 absolute top-0 left-0 w-full h-full" />}
             <style>
                 {`
                     .tab-content::-webkit-scrollbar {
