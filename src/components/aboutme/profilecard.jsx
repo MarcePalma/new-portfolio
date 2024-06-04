@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { NodeJS, Prisma, VSCode, Design, ReactIcon, NextJSIcon, JavascriptIcon, HTML5Icon, CSSIcon, TailwindCSSIcon } from "./icons.jsx";
 import Hero from './hero.tsx';
 import Typed from 'typed.js';
-import DesignBackground from './DesignBackground/DesignBackground.jsx'
+import MainBackground from './DesignBackground/MainBackground.jsx'
 
 export default function ProfileCard() {
     const [activeTab, setActiveTab] = useState('tab1');
@@ -55,7 +55,6 @@ export default function ProfileCard() {
                 return new Typed(`#${uniqueId}`, options);
             });
 
-            // Detener las instancias después de 5 segundos
             setTimeout(() => {
                 typedInstances.forEach(instance => instance.destroy());
                 setIsAnimationActive(false);
@@ -96,8 +95,8 @@ export default function ProfileCard() {
 
 
     return (
-        <div className={`font-manrope ${isLightMode ? 'bg-white text-black' : 'bg-[#121212] text-[#E6E9EB]'} flex justify-center flex-col h-screen select-none relative transition-all duration-500`}>
-            {isLightMode && <DesignBackground className="z-0 absolute top-0 left-0 w-full h-full" />}
+        <div className={`font-manrope ${isLightMode ? ' text-black' : 'bg-[#121212] text-[#E6E9EB]'} flex justify-center flex-col h-screen select-none relative transition-all duration-500`}>
+           
             <div className='absolute top-20 left-0 w-full z-10'>
                 <Hero />
             </div>
@@ -223,7 +222,7 @@ export default function ProfileCard() {
                     <span className={`coder-animation-text`}></span>
                 </div>
             ))}
-            {isLightMode && <DesignBackground className="z-0 absolute top-0 left-0 w-full h-full" />}
+             {isLightMode && <MainBackground />}
             <style>
                 {`
                     .tab-content::-webkit-scrollbar {
