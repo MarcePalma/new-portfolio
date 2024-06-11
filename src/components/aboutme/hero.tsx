@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Particles from './ParticlesSketch';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -36,7 +35,6 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
-      <Particles />
       <style jsx>{`
         .speech-bubble {
           position: absolute;
