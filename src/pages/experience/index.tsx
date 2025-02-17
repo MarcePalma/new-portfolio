@@ -39,11 +39,11 @@ export default function ExperiencePage() {
             <ProjectShowcase
                 title="Queen Nails Spa"
                 images={[
-                    { src: '/images/experience/page.png', description: 'Home page' },
-                    { src: '/images/experience/page1.png', description: 'Business Hours' },
-                    { src: '/images/experience/page2.png', description: 'Appointment Booking' },
-                    { src: '/images/experience/page3.png', description: 'Publication Forum' },
-                    { src: '/images/experience/page4.png', description: 'Admin Panels' }
+                    { src: '/images/experience/page.webp', description: 'Home page' },
+                    { src: '/images/experience/page1.webp', description: 'Business Hours' },
+                    { src: '/images/experience/page2.webp', description: 'Appointment Booking' },
+                    { src: '/images/experience/page3.webp', description: 'Publication Forum' },
+                    { src: '/images/experience/page4.webp', description: 'Admin Panels' }
                 ]}
                 description="Queen Nails Spa is a full-stack application built with NextJS, TypeScript, Prisma, AWS services, and PostgreSQL. It features a landing page, an appointment scheduling system, a sales page, and an admin panel. The admin panel includes an agenda for manual user appointment scheduling, a calendar for managing available time slots, a publication management system for adding, editing, and deleting posts, an automatic removal system for past schedules or agendas, and a homepage editor for image and title customization."
                 technologies={['NextJS', 'TypeScript', 'Prisma', 'AWS', 'PostgreSQL']}
@@ -52,14 +52,26 @@ export default function ExperiencePage() {
             <ProjectShowcase
                 title="MarketApp"
                 images={[
-                    { src: '/images/experience/page-2.png', description: 'Home Page' },
-                    { src: '/images/experience/page2-1.png', description: 'Stock' },
-                    { src: '/images/experience/page-2-2.png', description: 'Sales' },
-                    { src: '/images/experience/page-2-3.png', description: 'Income Reports' },
+                    { src: '/images/experience/page-2.webp', description: 'Home Page' },
+                    { src: '/images/experience/page2-1.webp', description: 'Stock' },
+                    { src: '/images/experience/page-2-2.webp', description: 'Sales' },
+                    { src: '/images/experience/page-2-3.webp', description: 'Income Reports' },
                 ]}
                 description="MarketApp is a full-stack application built with Nextron, NextJS, TypeScript, PrismaORM, and SQL. It's designed to manage business operations efficiently, providing various features tailored for business administration. The app includes an inventory management system with barcode scanning capabilities, allowing users to add and manage stock items. It also features a sales module with a built-in calculator, barcode scanner, and a compact stock list for efficient sales processing. Additionally, MarketApp offers an income reporting feature, allowing users to generate income reports by day, week, and month, as well as track expenses for income comparison."
                 technologies={['Nextron', 'NextJS', 'TypeScript', 'Prisma', 'SQL']}
                 duration="March - May 2024"
+            />
+            <ProjectShowcase
+                title="Lulu Gumis"
+                images={[
+                    { src: "/images/experience/page3-1.webp", description: 'Home Page' },
+                    { src: "/images/experience/page3-2.webp", description: 'Product Catalog' },
+                    { src: "/images/experience/page3-3.webp", description: 'Dashboard' },
+                    { src: "/images/experience/page3-4.webp", description: 'Form to add Products' },
+                ]}
+                description="Lulu Gumis is a fully responsive e-commerce platform designed for handmade amigurumi sales. The site features a dynamic product catalog with category filters, a seamless image carousel, and an integrated testimonial section displaying customer reviews. The backend is powered by Prisma and PostgreSQL, ensuring efficient product management. The project also incorporates Cloudinary for optimized image handling and utilizes Framer Motion for smooth UI animations."
+                technologies={['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Tailwind CSS', 'Cloudinary']}
+                duration="October 2024 - November 2024"
             />
 
             <style jsx>{`
