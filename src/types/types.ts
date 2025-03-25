@@ -21,6 +21,7 @@ export interface ProjectShowcaseProps {
   title: string;
   images: { src: string; description: string; }[];
   description: string;
+  responsibilites:string;
   technologies: string[];
   duration: string;
 }

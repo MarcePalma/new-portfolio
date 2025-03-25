@@ -215,7 +215,7 @@ export default function ProfileCard() {
                         </ul>
                     </div>
                 </main>
-                <a href="/" className='btn btn--primary w-full bg-[#655FDF] hover:bg-[#3A45EF] rounded-full py-2 px-4 mt-8 text-center transition-all duration-300 hover:scale-105'>Hire me</a>
+                <a href="/contact" className='btn btn--primary w-full bg-[#655FDF] hover:bg-[#3A45EF] rounded-full py-2 px-4 mt-8 text-center transition-all duration-300 hover:scale-105'>Hire me</a>
             </div>
             {isAnimationActive && animations.map((text, index) => (
                 <div key={index} className="coder-animation overflow-hidden" id={`coder-animation-${index}`}>

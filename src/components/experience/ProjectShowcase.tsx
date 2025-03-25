@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { ProjectShowcaseProps } from '@/types/types';
 
-const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ title, images, description, technologies, duration }) => {
+const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ title, images, description, technologies, duration, responsibilites }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [zoomed, setZoomed] = useState(false);
     const mainImageRef = useRef<HTMLDivElement>(null);
@@ -45,7 +45,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ title, images, descri
             <div className="project-details">
                 <p>{description}</p>
                 <p><strong>Project Duration:</strong> {duration}</p>
-                <p><strong>Responsibilities:</strong> Design and development from scratch.</p>
+                <p><strong>Responsibilities:</strong> {responsibilites} </p>
                 <h4>Technologies Used:</h4>
                 <ul>
                     {technologies.map((tech, index) => (
@@ -84,7 +84,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ title, images, descri
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    height: 500px; /* Tamaño deseado del área de la imagen principal */
+                    height: 500px;
                 }
 
                 .main-image img {

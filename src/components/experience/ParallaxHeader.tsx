@@ -5,7 +5,7 @@ import { ParallaxHeaderProps } from '@/types/types';
 const ParallaxHeader: React.FC<ParallaxHeaderProps> = ({ image, strength, children }) => {
     useEffect(() => {
         let start = 0;
-        const end = 1;
+        const end = 2;
         const duration = 2000;
         const stepTime = Math.abs(Math.floor(duration / (end - start)));
         const obj = document.getElementById("experience-years");
