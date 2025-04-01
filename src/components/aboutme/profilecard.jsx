@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { NodeJS, Prisma, VSCode, Design, ReactIcon, NextJSIcon, JavascriptIcon, HTML5Icon, CSSIcon, TailwindCSSIcon } from "./icons.jsx";
+import { NodeJS, Prisma, VSCode, Design, ReactIcon, NextJSIcon, JavascriptIcon, HTML5Icon, CSSIcon, TailwindCSSIcon, DownloadIcon } from "./icons.jsx";
 import Hero from './hero.tsx';
 import Typed from 'typed.js';
 import MainBackground from './DesignBackground/MainBackground.jsx'
@@ -96,7 +96,7 @@ export default function ProfileCard() {
 
     return (
         <div className={`font-manrope ${isLightMode ? ' text-black' : 'bg-[#121212] text-[#E6E9EB]'} flex justify-center flex-col h-screen select-none relative transition-all duration-500`}>
-           
+
             <div className='absolute top-20 left-0 w-full z-10'>
                 <Hero />
             </div>
@@ -154,6 +154,11 @@ export default function ProfileCard() {
                             <li className={activeTab === 'tab3' ? 'active' : ''}>
                                 <a id="tab3" href="#Languages" onClick={() => handleTabClick('tab3')} className='flex items-center justify-center py-3 px-4 rounded-lg transition-all duration-300 focus:outline-none hover:bg-[#34393F]'>
                                     Languages
+                                </a>
+                            </li>
+                            <li className={activeTab === 'tab4' ? 'active' : ''}>
+                                <a id='tab4' href="#Curriculum" onClick={() => handleTabClick('tab4')} className='flex items-center justify-center py-3 px-4 rounded-lg transition-all duration-300 focus:outline-none hover:bg-[#34393F]'>
+                                    Curriculum
                                 </a>
                             </li>
                         </ul>
@@ -214,6 +219,17 @@ export default function ProfileCard() {
                             </li>
                         </ul>
                     </div>
+                    <div id="tab2-content" className={`tab-content ${activeTab === 'tab4' ? 'tab-content--active' : 'hidden'}`} style={{ height: '250px', overflow: 'auto' }}>
+                        <h2 className='text-lg font-semibold mb-2'>Curriculum</h2>
+                        <ul className="content-links flex flex-col gap-2">
+                            <li>
+                                <a href="#curriculum" className={`flex items-center rounded-lg ${isLightMode ? 'bg-[#8993aa]' : 'bg-[#343841]'} border border-[#42474D] p-2 transition-all duration-300 hover:cursor-pointer hover:text-[#655FDF]`}>
+                                    Download In PDF <DownloadIcon />
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
                 </main>
                 <a href="/contact" className='btn btn--primary w-full bg-[#655FDF] hover:bg-[#3A45EF] rounded-full py-2 px-4 mt-8 text-center transition-all duration-300 hover:scale-105'>Hire me</a>
             </div>
@@ -222,7 +238,7 @@ export default function ProfileCard() {
                     <span className={`coder-animation-text`}></span>
                 </div>
             ))}
-             {isLightMode && <MainBackground />}
+            {isLightMode && <MainBackground />}
             <style>
                 {`
                     .tab-content::-webkit-scrollbar {
