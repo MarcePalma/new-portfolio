@@ -21,7 +21,7 @@ export interface ProjectShowcaseProps {
   title: string;
   images: { src: string; description: string; }[];
   description: string;
-  responsibilites:string;
+  responsibilites: string;
   technologies: string[];
   duration: string;
 }
@@ -30,4 +30,9 @@ export interface ParallaxSectionProps {
   image: string;
   strength: number;
   children: ReactNode;
+}
+
+export interface Message {
+  sender: 'user' | 'bot';
+  text: string;
 }
