@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { NodeJS, Prisma, VSCode, Design, ReactIcon, NextJSIcon, JavascriptIcon, HTML5Icon, CSSIcon, TailwindCSSIcon, DownloadIcon } from "./icons.jsx";
-import Hero from './hero.tsx';
 import Typed from 'typed.js';
 import MainBackground from './DesignBackground/MainBackground.jsx'
 
@@ -98,7 +97,6 @@ export default function ProfileCard() {
         <div className={`font-manrope ${isLightMode ? ' text-black' : 'bg-[#121212] text-[#E6E9EB]'} flex justify-center flex-col h-screen select-none relative transition-all duration-500`}>
 
             <div className='absolute top-20 left-0 w-full z-10'>
-                <Hero />
             </div>
             <div className={`profile bg-[#23262D] p-4 rounded-lg shadow-md w-full max-w-[28rem] min-w-[20rem] mx-auto gap-3 flex flex-col items-center justify-between relative z-20 ${isLightMode ? 'bg-gray-200' : ''} transition-all duration-500`}>
                 <header className='profile-header flex justify-between items-start w-full gap-3'>
